@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/erickmp07/jobs-calc/issues"
   },
-  "homepage": "https://github.com/erickmp07/jobs-calc#readme"
+  "homepage": "https://github.com/erickmp07/jobs-calc#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
