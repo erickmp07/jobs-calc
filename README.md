@@ -30,6 +30,7 @@ This project was developed with the following technologies:
 - [npm](https://www.npmjs.com/)
 - [EJS](https://ejs.co/)
 - [Express](https://expressjs.com/)
+- [Nodemon](https://nodemon.io/)
 - [SQLite](https://sqlite.org)
 
 ## Project
