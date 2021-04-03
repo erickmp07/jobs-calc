@@ -56,7 +56,7 @@ npm install
 ```
 - To start the server
 ```bash
-nodemon .
+npm run dev
 ```
 
 ## License
