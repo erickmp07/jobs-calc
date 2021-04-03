@@ -54,7 +54,10 @@ git clone https://github.com/erickmp07/jobs-calc.git
 ```bash
 npm install
 ```
-
+- To start the server
+```bash
+nodemon .
+```
 
 ## License
 
