@@ -21,6 +21,10 @@ routes.get("/job", (request, response) => {
     return response.render(`${basePath}job`);
 });
 
+routes.post("/job", (request, response) => {
+    console.log(request);
+});
+
 routes.get("/job/edit", (request, response) => {
     return response.render(`${basePath}job-edit`);
 });
