@@ -24,7 +24,15 @@ routes.get("/job", (request, response) => {
 });
 
 routes.post("/job", (request, response) => {
-    jobs.push(request.body);
+    const jobId = jobs[jobs.length - 1]?.id + 1 || 1;
+    
+    jobs.push({
+        id: jobId,
+        name: request.body.name,
+        "daily-hours": request.body["daily-hours"],
+        "total-hours": request.body["total-hours"],
+        createdAt: Date.now()
+    });
 
     return response.redirect("/");
 });
