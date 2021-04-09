@@ -13,6 +13,8 @@ const profile = {
     "vacation-per-year": 4
 };
 
+const jobs = [];
+
 routes.get("/", (request, response) => {
     return response.render(`${basePath}index`);
 });
@@ -22,7 +24,9 @@ routes.get("/job", (request, response) => {
 });
 
 routes.post("/job", (request, response) => {
-    console.log(request);
+    jobs.push(request.body);
+
+    return response.redirect("/");
 });
 
 routes.get("/job/edit", (request, response) => {
