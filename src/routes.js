@@ -16,7 +16,7 @@ const profile = {
 const jobs = [];
 
 routes.get("/", (request, response) => {
-    return response.render(`${basePath}index`);
+    return response.render(`${basePath}index`, { jobs });
 });
 
 routes.get("/job", (request, response) => {
