@@ -6,7 +6,7 @@ const basePath = `${__dirname}/views/`;
 
 const profile = {
     "name": "Erick",
-    "avatar": "https://avatars.githubusercontent.com/u/16216886?v=4",
+    "avatar": "https://github.com/erickmp07.png",
     "monthly-budget": 3000,
     "hours-per-day": 5,
     "days-per-week": 5,
