@@ -75,6 +75,13 @@ const Job = {
             return response.redirect("/");
         },
         showDetail(request, response) {
+            const jobId = request.params.id;
+
+            const job = Job.data.find(job => Number(job.id) === Number(jobId));
+            if (!job) {
+                return response.send("Job not found.");
+            }
+
             return response.render(`${basePath}job-edit`, { job });
         }
     },
