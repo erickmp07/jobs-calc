@@ -12,7 +12,7 @@ const Profile = {
         "hours-per-day": 5,
         "days-per-week": 5,
         "vacation-per-year": 4,
-        "hour-value": 75
+        "value-hour": 75
     },
     controllers: {
         index(request, response) {
@@ -29,7 +29,7 @@ const Profile = {
 
             const monthlyTotalHours = weeksPerMonth  * weekTotalHours;
 
-            data["hour-value"] = data["monthly-budget"] / monthlyTotalHours;
+            data["value-hour"] = data["monthly-budget"] / monthlyTotalHours;
 
             Profile.data = data;
 
@@ -52,7 +52,7 @@ const Job = {
                     ...job,
                     remaining,
                     status,
-                    budget: Profile.data["hour-value"] * job["total-hours"]
+                    budget: Job.services.calculateBudget(job, Profile.data["value-hour"])
                 };
             });
 
@@ -82,6 +82,8 @@ const Job = {
                 return response.send("Job not found.");
             }
 
+            job.budget = Job.services.calculateBudget(job, Profile.data["value-hour"]);
+
             return response.render(`${basePath}job-edit`, { job });
         }
     },
@@ -101,6 +103,9 @@ const Job = {
             const dayDiff = Math.floor(timeDiffInMs / dayInMs);
 
             return dayDiff;
+        },
+        calculateBudget(job, hourValue) {
+            return hourValue * job["total-hours"];
         }
     }
 };
