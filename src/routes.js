@@ -35,7 +35,7 @@ const Job = {
                     ...job,
                     remaining,
                     status,
-                    budget: profile["hour-value"] * job["total-hours"]
+                    budget: Profile.data["hour-value"] * job["total-hours"]
                 };
             });
 
