@@ -32,40 +32,40 @@
                 <h2 class="sr-only">Homepage</h2>
                 <img id="logo" src="/images/logo.svg" alt="Logo" />
                 <span id="notification">
-                    <img src="/images/alert-octagon.svg" alt="Alerta" />
-                    Você tem 2 horas livres no seu dia
+                    <img src="/images/alert-octagon.svg" alt="Alert" />
+                    You have 2 hours free in your day
                 </span>
                 <a href="/profile" id="avatar-profile">
-                    <p>Jakeliny <span>Ver perfil</span></p>
+                    <p>Erick <span>See your profile</span></p>
                     <img
-                        src="https://avatars.githubusercontent.com/u/17316392?s=460&u=6912a91a70bc89745a2079fdcdad3bc3ce370f13&v=4" />
+                        src="https://github.com/erickmp07.png" />
                 </a>
             </section>
 
             <div class="separator"></div>
 
             <section id="summary" class="animate-up delay-1">
-                <h2 class="sr-only">Sumário</h2>
+                <h2 class="sr-only">Summary</h2>
 
                 <div class="info">
                     <div class="total">
                         <strong>12</strong>
-                        Projetos ao total
+                        Projects
                     </div>
                     <div class="in-progress">
                         <strong>7</strong>
-                        Em andamento
+                        In progress
                     </div>
                     <div class="finished">
                         <strong>4</strong>
-                        Encerrados
+                        Closed
                     </div>
                 </div>
                 <a class="button orange" href="/job">
                     <span>
-                        <img src="/images/plus-24.svg" alt="Novo Job" />
+                        <img src="/images/plus-24.svg" alt="New Job" />
                     </span>
-                    Adicionar novo job
+                    Add new job
                 </a>
             </section>
         </div>
@@ -122,14 +122,14 @@
 
     <div class="modal-wrapper">
         <div class="modal">
-            <img src="/images/trash-48.svg" alt="Excluir Job" title="Excluir Job" />
-            <h3>Excluir Job</h3>
-            <p>Quer mesmo excluir esse job? <br />
-                Ele será apagado para sempre.
-            <p>
+            <img src="/images/trash-48.svg" alt="Delete Job" title="Delete Job" />
+            <h3>Delete Job</h3>
+            <p>Do you really want to delete this Job? <br />
+                This action cannot be undone.
+            </p>
             <footer>
-                <a class="button gray" href="#">Cancelar</a>
-                <button class="button red" type="submit" form="delete-job">Excluir Job</button>
+                <a class="button gray" href="#">Cancel</a>
+                <button class="button red" type="submit" form="delete-job">Delete Job</button>
             </footer>
         </div>
         <form method="post" action="/job/delete" id="delete-job"></form>
