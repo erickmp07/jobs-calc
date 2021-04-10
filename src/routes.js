@@ -4,14 +4,21 @@ const routes = express.Router();
 
 const basePath = `${__dirname}/views/`;
 
-const profile = {
-    "name": "Erick",
-    "avatar": "https://github.com/erickmp07.png",
-    "monthly-budget": 3000,
-    "hours-per-day": 5,
-    "days-per-week": 5,
-    "vacation-per-year": 4,
-    "hour-value": 75
+const Profile = {
+    data: {
+        name: "Erick",
+        avatar: "https://github.com/erickmp07.png",
+        "monthly-budget": 3000,
+        "hours-per-day": 5,
+        "days-per-week": 5,
+        "vacation-per-year": 4,
+        "hour-value": 75
+    },
+    controllers: {
+        index(request, response) {
+            return response.render(`${basePath}profile`, { profile: Profile.data });
+        }
+    }
 };
 
 const Job = {
@@ -71,8 +78,6 @@ const Job = {
     }
 };
 
-const jobs = [];
-
 routes.get("/", Job.controllers.index);
 
 routes.get("/job", Job.controllers.list);
@@ -83,8 +88,6 @@ routes.get("/job/edit", (request, response) => {
     return response.render(`${basePath}job-edit`);
 });
 
-routes.get("/profile", (request, response) => {
-    return response.render(`${basePath}profile`, { profile });
-});
+routes.get("/profile", Profile.controllers.index);
 
 module.exports = routes;
