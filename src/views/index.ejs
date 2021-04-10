@@ -85,7 +85,14 @@
                         </div>
                         <div class="deadline column">
                             <span>Deadline</span>
-                            <p><%= job.remaining %> days for delivery</p>
+                            <p>
+                                <% if (job.status === "progress") { %>
+                                    <%= job.remaining %> days for delivery
+                                <% } %>
+                                <% else { %>
+                                    Deadline ended
+                                <% } %>
+                            </p>
                         </div>
                         <div class="amount column">
                             <span>Amount</span>
