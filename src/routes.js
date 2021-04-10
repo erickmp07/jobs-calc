@@ -73,6 +73,9 @@ const Job = {
             });
 
             return response.redirect("/");
+        },
+        showDetail(request, response) {
+            return response.render(`${basePath}job-edit`, { job });
         }
     },
     services: {
@@ -98,11 +101,7 @@ const Job = {
 routes.get("/", Job.controllers.index);
 routes.get("/job", Job.controllers.list);
 routes.post("/job", Job.controllers.save);
-
-routes.get("/job/edit", (request, response) => {
-    return response.render(`${basePath}job-edit`);
-});
-
+routes.get("/job/:id", Job.controllers.showDetail);
 routes.get("/profile", Profile.controllers.index);
 routes.post("/profile", Profile.controllers.update);
 
