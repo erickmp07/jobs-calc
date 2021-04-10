@@ -16,7 +16,7 @@
 <br>
 
 <p align="center">
-  <img alt="JobsCalc main page" title="JobsCalc main page" src="public/jobscalc.png" width="100%">
+  <img alt="JobsCalc main page" title="JobsCalc main page" src="public/images/jobs-calc.png" width="100%">
 </p>
 
 ## Technologies

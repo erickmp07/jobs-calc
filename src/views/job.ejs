@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -29,26 +29,26 @@
 
         <div class="container flex animate-up delay-2">
             <main>
-                <form id="form-job">
+                <form id="form-job" action="/job" method="POST">
                     <fieldset>
-                        <legend>Dados do Job</legend>
+                        <legend>Job Data</legend>
                         <div class="separator light"></div>
 
                         <div class="input-wrapper">
-                            <label for="name">Nome do Job</label>
+                            <label for="name">Job Name</label>
                             <input type="text" id="name" name="name" />
                         </div>
 
                         <div class="input-group">
                             <div class="input-wrapper">
-                                <label for="daily-hours">Quantas horas <br />
-                                    por dia vai dedicar ao job?</label>
+                                <label for="daily-hours">How many hours <br />
+                                    a day will you dedicate to the Job?</label>
                                 <input type="number" step="0.1" id="daily-hours" name="daily-hours" />
                             </div>
 
                             <div class="input-wrapper">
-                                <label for="total-hours">Estimativa de <br />
-                                    horas para esse Job?</label>
+                                <label for="total-hours">Estimated hours <br />
+                                    for this Job?</label>
                                 <input type="number" id="total-hours" name="total-hours" />
                             </div>
                         </div>
@@ -57,15 +57,15 @@
                 </form>
             </main>
             <aside class="card">
-                <img src="/images/money-gray.svg" alt="Imagem de Dinheiro">
+                <img src="/images/money-gray.svg" alt="Money image">
                 <p>
-                    Preencha os dados ao lado para
-                    ver o valor do projeto
+                    Fill in the data on te side to
+                    see the value of the project
                 </p>
                 <div class="button-group">
-                    <button class="button green" form="form-job" type="submit" title="Salvar Dados">Salvar</button>
+                    <button class="button green" form="form-job" type="submit" title="Save data">Save</button>
                     <a href="index.html" class="button gray">
-                        <img src="/images/trash-24.svg" alt="Cancelar cadastro" title="Cancelar cadastro">
+                        <img src="/images/trash-24.svg" alt="Cancel registration" title="Cancel registration">
                     </a>
                 </div>
             </aside>
