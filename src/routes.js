@@ -110,6 +110,13 @@ const Job = {
             });
 
             response.redirect(`/job/${jobId}`);
+        },
+        delete(request, response) {
+            const jobId = request.params.id;
+
+            Job.data = Job.data.filter(job => Number(job.id) !== Number(jobId));
+
+            return response.redirect("/");
         }
     },
     services: {
@@ -140,6 +147,7 @@ routes.get("/job", Job.controllers.list);
 routes.post("/job", Job.controllers.save);
 routes.get("/job/:id", Job.controllers.showDetail);
 routes.post("/job/:id", Job.controllers.update);
+routes.post("/job/delete/:id", Job.controllers.delete);
 routes.get("/profile", Profile.controllers.index);
 routes.post("/profile", Profile.controllers.update);
 
