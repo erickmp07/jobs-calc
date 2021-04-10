@@ -17,6 +17,23 @@ const Profile = {
     controllers: {
         index(request, response) {
             return response.render(`${basePath}profile`, { profile: Profile.data });
+        },
+        update(request, response) {
+            const data = request.body;
+
+            const weeksPerYear = 52;
+
+            const weeksPerMonth = (weeksPerYear - data["vacation-per-year"]) / 12;
+
+            const weekTotalHours = data["hours-per-day"] * data["days-per-week"];
+
+            const monthlyTotalHours = weeksPerMonth  * weekTotalHours;
+
+            data["hour-value"] = data["monthly-budget"] / monthlyTotalHours;
+
+            Profile.data = data;
+
+            return response.redirect("/profile");
         }
     }
 };
@@ -79,9 +96,7 @@ const Job = {
 };
 
 routes.get("/", Job.controllers.index);
-
 routes.get("/job", Job.controllers.list);
-
 routes.post("/job", Job.controllers.save);
 
 routes.get("/job/edit", (request, response) => {
@@ -89,5 +104,6 @@ routes.get("/job/edit", (request, response) => {
 });
 
 routes.get("/profile", Profile.controllers.index);
+routes.post("/profile", Profile.controllers.update);
 
 module.exports = routes;
