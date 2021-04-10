@@ -85,6 +85,31 @@ const Job = {
             job.budget = Job.services.calculateBudget(job, Profile.data["value-hour"]);
 
             return response.render(`${basePath}job-edit`, { job });
+        },
+        update(request, response) {   
+            const jobId = request.params.id;
+
+            const job = Job.data.find(job => Number(job.id) === Number(jobId));
+            if (!job) {
+                return response.send("Job not found.");
+            }
+
+            const updatedJob = {
+                ...job,
+                name: request.body.name,
+                "total-hours": request.body["total-hours"],
+                "daily-hours": request.body["daily-hours"]
+            };
+
+            Job.data = Job.data.map(job => {
+                if (Number(job.id) === Number(jobId)) {
+                    job = updatedJob;
+                }
+
+                return job;
+            });
+
+            response.redirect(`/job/${jobId}`);
         }
     },
     services: {
@@ -114,6 +139,7 @@ routes.get("/", Job.controllers.index);
 routes.get("/job", Job.controllers.list);
 routes.post("/job", Job.controllers.save);
 routes.get("/job/:id", Job.controllers.showDetail);
+routes.post("/job/:id", Job.controllers.update);
 routes.get("/profile", Profile.controllers.index);
 routes.post("/profile", Profile.controllers.update);
 
