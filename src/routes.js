@@ -47,7 +47,7 @@ const Job = {
         save(request, response) {
             const jobId = Job.data[Job.data.length - 1]?.id + 1 || 1;
 
-            jobs.push({
+            Job.data.push({
                 id: jobId,
                 name: request.body.name,
                 "daily-hours": request.body["daily-hours"],
