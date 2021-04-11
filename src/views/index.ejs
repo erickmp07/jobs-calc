@@ -36,9 +36,8 @@
                     You have 2 hours free in your day
                 </span>
                 <a href="/profile" id="avatar-profile">
-                    <p>Erick <span>See your profile</span></p>
-                    <img
-                        src="https://github.com/erickmp07.png" />
+                    <p><%= profile.name %> <span>See your profile</span></p>
+                    <img src="<%= profile.avatar %>" />
                 </a>
             </section>
 
@@ -49,16 +48,16 @@
 
                 <div class="info">
                     <div class="total">
-                        <strong>12</strong>
+                        <strong><%= statusCounts.total %></strong>
                         Projects
                     </div>
                     <div class="in-progress">
-                        <strong>7</strong>
+                        <strong><%= statusCounts.progress %></strong>
                         In progress
                     </div>
                     <div class="finished">
-                        <strong>4</strong>
-                        Closed
+                        <strong><%= statusCounts.done %></strong>
+                        Done
                     </div>
                 </div>
                 <a class="button orange" href="/job">
