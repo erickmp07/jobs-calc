@@ -33,7 +33,11 @@
                 <img id="logo" src="/images/logo.svg" alt="Logo" />
                 <span id="notification">
                     <img src="/images/alert-octagon.svg" alt="Alert" />
-                    You have <%= freeHours %> hour(s) free in your day
+                    <% if(freeHours <= 0) { %>
+                        You have no hour free
+                    <% } else { %>
+                        You have <%= freeHours %> hour(s) free in your day
+                    <% } %>
                 </span>
                 <a href="/profile" id="avatar-profile">
                     <p><%= profile.name %> <span>See your profile</span></p>
