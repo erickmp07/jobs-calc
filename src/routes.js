@@ -1,40 +1,7 @@
 const express = require("express");
+const ProfileController = require("./controllers/ProfileController");
 
 const routes = express.Router();
-
-const Profile = {
-    data: {
-        name: "Erick",
-        avatar: "https://github.com/erickmp07.png",
-        "monthly-budget": 3000,
-        "hours-per-day": 5,
-        "days-per-week": 5,
-        "vacation-per-year": 4,
-        "value-hour": 75
-    },
-    controllers: {
-        index(request, response) {
-            return response.render("profile", { profile: Profile.data });
-        },
-        update(request, response) {
-            const data = request.body;
-
-            const weeksPerYear = 52;
-
-            const weeksPerMonth = (weeksPerYear - data["vacation-per-year"]) / 12;
-
-            const weekTotalHours = data["hours-per-day"] * data["days-per-week"];
-
-            const monthlyTotalHours = weeksPerMonth  * weekTotalHours;
-
-            data["value-hour"] = data["monthly-budget"] / monthlyTotalHours;
-
-            Profile.data = data;
-
-            return response.redirect("/profile");
-        }
-    }
-};
 
 const Job = {
     data: [],
@@ -146,7 +113,7 @@ routes.post("/job", Job.controllers.save);
 routes.get("/job/:id", Job.controllers.showDetail);
 routes.post("/job/:id", Job.controllers.update);
 routes.post("/job/delete/:id", Job.controllers.delete);
-routes.get("/profile", Profile.controllers.index);
-routes.post("/profile", Profile.controllers.update);
+routes.get("/profile", ProfileController.index);
+routes.post("/profile", ProfileController.update);
 
 module.exports = routes;
