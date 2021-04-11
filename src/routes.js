@@ -1,10 +1,11 @@
 const express = require("express");
+const DashboarController = require("./controllers/DashboardController");
 const JobController = require("./controllers/JobController");
 const ProfileController = require("./controllers/ProfileController");
 
 const routes = express.Router();
 
-routes.get("/", JobController.index);
+routes.get("/", DashboarController.index);
 routes.get("/job", JobController.list);
 routes.post("/job", JobController.save);
 routes.get("/job/:id", JobController.show);
