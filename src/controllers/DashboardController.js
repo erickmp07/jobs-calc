@@ -12,6 +12,8 @@ module.exports = {
             done: 0,
             total: jobs.length
         };
+
+        let jobsInProgressTotalHours = 0;
     
         const updatedJobs = jobs.map((job) => {
             const remaining = JobUtils.remainingDays(job);
@@ -20,6 +22,10 @@ module.exports = {
                 : "progress";
 
             statusCounts[status] += 1;
+
+            if (status === "progress") {
+                jobsInProgressTotalHours += Number(job["daily-hours"]);
+            }
     
             return {
                 ...job,
@@ -28,11 +34,14 @@ module.exports = {
                 budget: JobUtils.calculateBudget(job, profile["value-hour"])
             };
         });
+
+        const freeHours = profile["hours-per-day"] - jobsInProgressTotalHours;
     
         return response.render("index", { 
             jobs: updatedJobs, 
             profile: profile,
-            statusCounts: statusCounts 
+            statusCounts: statusCounts,
+            freeHours: freeHours 
         });
     }
 };
