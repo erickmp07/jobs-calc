@@ -2,8 +2,6 @@ const express = require("express");
 
 const routes = express.Router();
 
-const basePath = `${__dirname}/views/`;
-
 const Profile = {
     data: {
         name: "Erick",
@@ -16,7 +14,7 @@ const Profile = {
     },
     controllers: {
         index(request, response) {
-            return response.render(`${basePath}profile`, { profile: Profile.data });
+            return response.render("profile", { profile: Profile.data });
         },
         update(request, response) {
             const data = request.body;
@@ -56,10 +54,10 @@ const Job = {
                 };
             });
 
-            return response.render(`${basePath}index`, { jobs: updatedJobs });
+            return response.render("index", { jobs: updatedJobs });
         },
         list(request, response) {
-            return response.render(`${basePath}job`);
+            return response.render("job");
         },
         save(request, response) {
             const jobId = Job.data[Job.data.length - 1]?.id + 1 || 1;
@@ -84,7 +82,7 @@ const Job = {
 
             job.budget = Job.services.calculateBudget(job, Profile.data["value-hour"]);
 
-            return response.render(`${basePath}job-edit`, { job });
+            return response.render("job-edit", { job });
         },
         update(request, response) {   
             const jobId = request.params.id;
