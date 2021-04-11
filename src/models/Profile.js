@@ -12,7 +12,7 @@ module.exports = {
     get() {
         return data;
     },
-    update(newData) {
-        data = newData;
+    update(newProfile) {
+        data = newProfile;
     }
 };
