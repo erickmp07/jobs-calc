@@ -71,6 +71,10 @@ npm run init-db
 npm run dev
 ```
 
+<br>
+
+The application can be accessed at [localhost:3000](http://localhost:3000).
+
 ## License
 
 Licensed under [MIT](LICENSE) license
