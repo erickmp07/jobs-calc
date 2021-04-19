@@ -33,12 +33,15 @@
                 <img id="logo" src="/images/logo.svg" alt="Logo" />
                 <span id="notification">
                     <img src="/images/alert-octagon.svg" alt="Alert" />
-                    You have 2 hours free in your day
+                    <% if(freeHours <= 0) { %>
+                        You have no hour free
+                    <% } else { %>
+                        You have <%= freeHours %> hour(s) free in your day
+                    <% } %>
                 </span>
                 <a href="/profile" id="avatar-profile">
-                    <p>Erick <span>See your profile</span></p>
-                    <img
-                        src="https://github.com/erickmp07.png" />
+                    <p><%= profile.name %> <span>See your profile</span></p>
+                    <img src="<%= profile.avatar %>" />
                 </a>
             </section>
 
@@ -49,16 +52,16 @@
 
                 <div class="info">
                     <div class="total">
-                        <strong>12</strong>
+                        <strong><%= statusCounts.total %></strong>
                         Projects
                     </div>
                     <div class="in-progress">
-                        <strong>7</strong>
+                        <strong><%= statusCounts.progress %></strong>
                         In progress
                     </div>
                     <div class="finished">
-                        <strong>4</strong>
-                        Closed
+                        <strong><%= statusCounts.done %></strong>
+                        Done
                     </div>
                 </div>
                 <a class="button orange" href="/job">
@@ -95,12 +98,12 @@
                         </div>
                         <div class="amount column">
                             <span>Amount</span>
-                            <p>$ <%= job.budget.toFixed(2) %>></p>
+                            <p>$ <%= job.budget.toFixed(2) %></p>
                         </div>
                         <div class="status badge column">
                             <%= job.status === "done"
                                     ? "Done"
-                                    : "In Progress" %>>
+                                    : "In Progress" %>
                         </div>
                         <div class="actions column flex">
                             <p class="sr-only">Actions</p>
