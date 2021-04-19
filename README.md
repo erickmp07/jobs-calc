@@ -62,6 +62,10 @@ git clone https://github.com/erickmp07/jobs-calc.git
 ```bash
 npm install
 ```
+- To initialize the database
+```bash
+npm run init-db
+```
 - To start the server
 ```bash
 npm run dev
