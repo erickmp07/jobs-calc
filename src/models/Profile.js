@@ -1,16 +1,22 @@
-let data = {
-    name: "Erick",
-    avatar: "https://github.com/erickmp07.png",
-    "monthly-budget": 3000,
-    "hours-per-day": 5,
-    "days-per-week": 5,
-    "vacation-per-year": 4,
-    "value-hour": 75
-};
+const database = require("../db/config");
 
 module.exports = {
-    get() {
-        return data;
+    async get() {
+        const db = await database();
+
+        const data = await db.get(`SELECT * FROM profile`);
+
+        await db.close();
+
+        return {
+            name: data.name,
+            avatar: data.avatar,
+            "monthly-budget": data.monthly_budget,
+            "days-per-week": data.days_per_week,
+            "hours-per-day": data.hours_per_day,
+            "vacation-per-year": data.vacation_per_year,
+            "value-hour": data.value_hour
+        };
     },
     update(newProfile) {
         data = newProfile;
