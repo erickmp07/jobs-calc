@@ -5,6 +5,7 @@
 <p align="center">
   <a href="#technologies">Technologies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#project">Project</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#diagram">Diagram</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#how-to-run">How to run</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#license">License</a>
 </p>
@@ -38,6 +39,12 @@ This project was developed with the following technologies:
 JobsCalc is a calculation estimation application for freelancer projects (jobs) where it's possible to add and delete jobs and obtain a cost estimate for each job. 
 
 Also, it's possible to calculate the hourly value of the freelancer.
+
+## Diagram
+
+<p align="center">
+  <img alt="JobsCalc class diagram" title="JobsCalc class diagram" src="public/images/diagram.jpg" width="100%">
+</p>
 
 ## How to run
 
