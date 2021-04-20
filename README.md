@@ -95,7 +95,7 @@ docker build -t <username>/<app-name> .
 ```
 - Run the image with the command:
 ```bash
-docker run -p 49160:3333 -d <username>/<app-name>
+docker run -p 49160:3000 -d <username>/<app-name>
 ```
 
 <br>
