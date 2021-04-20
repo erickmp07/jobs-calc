@@ -48,6 +48,8 @@ Also, it's possible to calculate the hourly value of the freelancer.
 
 ## How to run
 
+### Locally
+
 Prerequisites:
 
 Download and install [Node.js](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm).
@@ -74,6 +76,31 @@ npm run dev
 <br>
 
 The application can be accessed at [localhost:3000](http://localhost:3000).
+
+<br>
+
+### Docker container
+
+Download and install [Docker](https://www.docker.com/products/docker-desktop)
+
+<br>
+
+- Clone the repository
+```bash
+git clone https://github.com/erickmp07/jobs-calc.git
+```
+- Build the image with the command:
+```bash
+docker build -t <username>/<app-name> .
+```
+- Run the image with the command:
+```bash
+docker run -p 49160:3333 -d <username>/<app-name>
+```
+
+<br>
+
+The application can be accessed at [`localhost:49160`](http://localhost:49160).
 
 ## License
 
