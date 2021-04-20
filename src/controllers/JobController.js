@@ -6,13 +6,8 @@ module.exports = {
     list(request, response) {
         return response.render("job");
     },
-    save(request, response) {
-        const jobs = Job.get();
-
-        const jobId = jobs[jobs.length - 1]?.id + 1 || 1;
-
-        jobs.push({
-            id: jobId,
+    async save(request, response) {
+        await Job.create({
             name: request.body.name,
             "daily-hours": request.body["daily-hours"],
             "total-hours": request.body["total-hours"],
@@ -21,8 +16,8 @@ module.exports = {
 
         return response.redirect("/");
     },
-    show(request, response) {
-        const jobs = Job.get();
+    async show(request, response) {
+        const jobs = await Job.get();
         
         const jobId = request.params.id;
 
@@ -31,14 +26,14 @@ module.exports = {
             return response.send("Job not found.");
         }
 
-        const profile = Profile.get();
+        const profile = await Profile.get();
 
         job.budget = JobUtils.calculateBudget(job, profile["value-hour"]);
 
         return response.render("job-edit", { job });
     },
-    update(request, response) {
-        const jobs = Job.get();
+    async update(request, response) {
+        const jobs = await Job.get();
         
         const jobId = request.params.id;
 
@@ -54,22 +49,14 @@ module.exports = {
             "daily-hours": request.body["daily-hours"]
         };
 
-        const newJobs = jobs.map(job => {
-            if (Number(job.id) === Number(jobId)) {
-                job = updatedJob;
-            }
-
-            return job;
-        });
-
-        Job.update(newJobs);
+        await Job.update(updatedJob);
 
         response.redirect(`/job/${jobId}`);
     },
-    delete(request, response) {
+    async delete(request, response) {
         const jobId = request.params.id;
 
-        Job.delete(jobId);
+        await Job.delete(jobId);
 
         return response.redirect("/");
     }
