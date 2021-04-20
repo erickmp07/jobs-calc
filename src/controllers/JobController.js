@@ -7,12 +7,7 @@ module.exports = {
         return response.render("job");
     },
     async save(request, response) {
-        const jobs = await Job.get();
-
-        const jobId = jobs[jobs.length - 1]?.id + 1 || 1;
-
-        Job.create({
-            id: jobId,
+        await Job.create({
             name: request.body.name,
             "daily-hours": request.body["daily-hours"],
             "total-hours": request.body["total-hours"],
