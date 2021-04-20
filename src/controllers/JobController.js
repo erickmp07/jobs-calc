@@ -49,15 +49,7 @@ module.exports = {
             "daily-hours": request.body["daily-hours"]
         };
 
-        const newJobs = jobs.map(job => {
-            if (Number(job.id) === Number(jobId)) {
-                job = updatedJob;
-            }
-
-            return job;
-        });
-
-        Job.update(newJobs);
+        await Job.update(updatedJob);
 
         response.redirect(`/job/${jobId}`);
     },
