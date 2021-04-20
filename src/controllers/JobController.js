@@ -61,10 +61,10 @@ module.exports = {
 
         response.redirect(`/job/${jobId}`);
     },
-    delete(request, response) {
+    async delete(request, response) {
         const jobId = request.params.id;
 
-        Job.delete(jobId);
+        await Job.delete(jobId);
 
         return response.redirect("/");
     }
