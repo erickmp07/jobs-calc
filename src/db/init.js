@@ -12,7 +12,7 @@ const initDb = {
             days_per_week INT,
             hours_per_day INT,
             vacation_per_year INT,
-            value_hour REAL
+            value_hour INT
         )`);
 
         await db.exec(`CREATE TABLE job (
@@ -29,14 +29,16 @@ const initDb = {
             monthly_budget,
             days_per_week,
             hours_per_day,
-            vacation_per_year
+            vacation_per_year,
+            value_hour
         ) VALUES (
             "Erick",
             "https://github.com/erickmp07.png",
             15000,
             5,
             8,
-            2
+            2,
+            90
         );`);
 
         await db.close();
