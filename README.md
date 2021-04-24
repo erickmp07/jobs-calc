@@ -75,7 +75,7 @@ npm run dev
 
 <br>
 
-The application can be accessed at [localhost:3000](http://localhost:3000).
+The application can be accessed at [`localhost:3000`](http://localhost:3000).
 
 <br>
 
@@ -85,17 +85,13 @@ Download and install [Docker](https://www.docker.com/products/docker-desktop)
 
 <br>
 
-- Clone the repository
+- Pull the image with the command:
 ```bash
-git clone https://github.com/erickmp07/jobs-calc.git
-```
-- Build the image with the command:
-```bash
-docker build -t <username>/<app-name> .
+docker pull erickmp07/jobs-calc:latest
 ```
 - Run the image with the command:
 ```bash
-docker run -p 49160:3000 -d <username>/<app-name>
+docker run -p 49160:3000 -d erickmp07/jobs-calc
 ```
 
 <br>
